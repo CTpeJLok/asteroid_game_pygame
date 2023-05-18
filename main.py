@@ -56,7 +56,6 @@ while isPause:
             quit()
         elif event.type == pygame.MOUSEBUTTONUP and event.button == 1:
             pos = pygame.mouse.get_pos()
-            print(pos)
             correct_pos_x = range(int(welcome.position.x) - int(welcome.radius),
                                   int(welcome.position.x) + int(welcome.radius))
             correct_pos_y = range(int(welcome.position.y) - int(welcome.radius) + 100,
@@ -74,7 +73,9 @@ while isPause:
 
 welcome = None
 
-while True:
+
+isPause = True
+while isPause:
     # input
     for event in pygame.event.get():
         if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
@@ -185,6 +186,27 @@ while True:
     for i in range(len(control)):
         print_text(screen, -SCREEN.WIDTH / 2, SCREEN.HEIGHT / 2 - 20 * i, 'ld', control[i], font32,
                    color=Color(COLOR.GREEN))
+
+    pygame.display.flip()
+    clock.tick(SCREEN.FPS)
+
+    if hearts <= 0:
+        isPause = False
+
+welcome = Welcome((SCREEN.WIDTH / 2, SCREEN.HEIGHT / 2), '0_1')
+
+isPause = True
+while isPause:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            quit()
+        elif event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+            quit()
+
+    # draw
+    screen.blit(background, (0, 0))
+    print_up()
+    welcome.draw(screen)
 
     pygame.display.flip()
     clock.tick(SCREEN.FPS)

@@ -27,9 +27,15 @@ class PLAYER:
     Настройки игрока
     '''
     SPEED_ROTATE = 3  # Скорость поворота
-    SPEED_MOVE = 2  # Скорость передвижения
-    SPEED_ACCELERATION = 2  # Скорость ускорения при нажатии LSHIFT
     MIN_DISTANCE_TO_ENEMY = 400  # Минимальная дистанция от астероида до игрока при спавне
+
+    SPEED_MAX = 0.2  # Максимальная скорость
+    SPEED_PLUS = 0.001  # Ускорение
+    SPEED_MINUS = 0.97  # Замедление
+    RECOIL_SPEED = 1.5  # Отдача от выстрела
+
+    # SPEED_MOVE = 2  # Скорость передвижения
+    # SPEED_ACCELERATION = 2  # Скорость ускорения при нажатии LSHIFT
 
 
 class ENEMY:

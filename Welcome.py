@@ -5,9 +5,9 @@ from utils import load_sprite
 
 
 class Welcome:
-    def __init__(self, position):
+    def __init__(self, position, sprite_name='0'):
         self.position = Vector2(position)
-        self.sprite = rotozoom(load_sprite('welcome', '0'), 0, 2)
+        self.sprite = rotozoom(load_sprite('welcome', sprite_name), 0, 2)
         self.radius = self.sprite.get_width() / 2
 
     def draw(self, surface):
